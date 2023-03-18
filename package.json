@@ -1,0 +1,33 @@
+{
+  "name": "nodejs_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start:prod": "NODE_ENV=prod node src/index.js",
+    "start:dev": "NODE_ENV=dev nodemon src/index.js"
+  },
+  "keywords": [
+    "NodeJs",
+    "MySql",
+    "Express",
+    "Api",
+    "Docker"
+  ],
+  "author": "Adil",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "ip": "^1.1.8",
+    "mysql": "^2.18.1",
+    "pino": "^8.11.0",
+    "pino-pretty": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21",
+    "prettier": "2.8.4"
+  }
+}
