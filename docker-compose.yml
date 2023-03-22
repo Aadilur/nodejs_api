@@ -1,26 +1,23 @@
-version: "3.4"
-
 services:
   mysqldb:
     image: mysql:8.0
-    container_name: mysqlcontainer
+    container_name: mysql_container
     command: --default-authentication-plugin=mysql_native_password
     restart: unless-stopped
     volumes:
       - ./dbinit/init.sql:/docker-entrypoint-initdb.d/0_init.sql
       - $HOME/database:/var/lib/mysql
-
     ports:
-      - 3306:3306
+      - 3307:3306
     expose:
-      - 3306
+      - 3307
     environment:
-      - MYSQL_DATABASE: patients_db
-      - MYSQL_USER: admin
-      - MYSQL_PASSWORD: letmein
-      - MYSQL_ROOT_PASSWORD: patients_db
-      - SERVICE_TAGS: dev
-      - SERVICE_NAME: mysqldb
+      MYSQL_DATABASE: patients_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: none
+      MYSQL_ROOT_PASSWORD: none
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysqldb
     networks:
       - internalnet
 

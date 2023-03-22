@@ -1,6 +1,7 @@
-create DATABASE IF NOT EXIST patients_db;
+create DATABASE IF NOT EXISTS patients_db;
 USE patients_db;
-DROP TABLE IF EXISTS patients_db;
+
+DROP TABLE IF EXISTS patients;
 
 CREATE TABLE patients(
 id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -13,5 +14,10 @@ diagnosis VARCHAR(255) DEFAULT NULL,
 image_url VARCHAR(255) DEFAULT NULL,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (id),
-CONSTRAINT uq_patients_email UNIQUE (email), 
+CONSTRAINT uq_patients_email UNIQUE (email)
 );
+
+
+ALTER USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'none';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
